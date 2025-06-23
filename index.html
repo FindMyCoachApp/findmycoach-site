@@ -1,385 +1,103 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Find My Coach</title>
-    <meta name="description"
-        content="Find My Coach connects you with trusted online and in-person sports coaches. Join the waitlist and train smarter." />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@600&family=Poppins:wght@600&display=swap"
-        rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find My Coach</title>
+  <link rel="stylesheet" href="styles.css" />
 
-    <style>
-        :root {
-            --primary: #5A72F7;
-            --accent: #ffffff;
-            --gray: #f0f0f0;
-            --font-head: 'Poppins', sans-serif;
-            --font-body: 'Inter', sans-serif;
-            --dark-bg: #121212;
-            --dark-text: #e0e0e0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--gray);
-            color: #333;
-            line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        body.dark-mode {
-            background: var(--dark-bg);
-            color: var(--dark-text);
-        }
-
-        header {
-            background-color: #0000fe;
-            /* Updated from var(--primary) */
-            color: var(--accent);
-            text-align: center;
-            padding: 4rem 1rem;
-        }
-
-
-        header img {
-            max-width: 150px;
-            margin-bottom: 1rem;
-        }
-
-        header h1 {
-            font-family: var(--font-head);
-            font-size: 2.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--primary);
-            color: var(--accent);
-        }
-
-        section {
-            padding: 4rem 2rem;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        h2 {
-            font-family: var(--font-head);
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .features {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            margin-top: 2rem;
-        }
-
-        .feature-item {
-            background: var(--accent);
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-item img {
-            max-width: 100%;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-        }
-
-        .preview-image {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        .center-text {
-            text-align: center;
-        }
-
-        .bold {
-            font-weight: bold;
-        }
-
-        .founder-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .founder-photo {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        input[type="email"] {
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        button[type="submit"] {
-            background-color: var(--primary);
-            color: var(--accent);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .footer {
-            background: #111;
-            color: #ccc;
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .footer a {
-            color: #ccc;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        .dark-mode-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            font-size: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 600px) {
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
-
 <body>
-    <!-- Dark Mode Toggle -->
-    <button class="dark-mode-toggle" id="theme-toggle" title="Toggle Dark Mode"
-        aria-label="Toggle Dark Mode">🌓</button>
-
-    <!-- Header -->
-    <header>
-        <img src="photos/3 (1).jpg" alt="Find My Coach Logo" loading="lazy" data-aos="fade-down">
-        <h1 data-aos="fade-up">Find Your Coach. Train Smarter.</h1>
-        <p data-aos="fade-up" data-aos-delay="100">Connecting you with trusted sports coaches — online & in person.</p>
-        <a href="#waitlist" class="btn" data-aos="zoom-in" data-aos-delay="200">Join the Waitlist</a>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" data-aos="fade-right">
-        <h2>About the App</h2>
-        <p>Find My Coach is a revolutionary platform designed to bridge the gap between athletes and professional
-            coaches. Whether you're seeking online guidance or in-person training sessions, our app offers a seamless
-            experience to discover, connect, and train with the best. Explore comprehensive coach profiles, compare
-            tiered pricing options, and book sessions that fit your schedule and goals.</p>
-    </section>
-
-    <!-- Features -->
-    <section id="features">
-        <h2 data-aos="fade-up">Features</h2>
-        <div class="features">
-            <div class="feature-item" data-aos="zoom-in">
-                <img src="photos/pexels-n-voitkevich-5412253.jpg" alt="Online Coaching" loading="lazy">
-                <h3>Online Coaching</h3>
-            </div>
-            <div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
-                <img src="photos/pexels-cliff-booth-4058411.jpg" alt="In-Person Training" loading="lazy">
-                <h3>In-Person Training</h3>
-            </div>
-            <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
-                <img src="photos/pexels-cliff-booth-4058411.jpg" alt="Search & Booking" loading="lazy">
-                <h3>Search & Booking</h3>
-            </div>
-            <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
-                <img src="photos/pexels-alesiakozik-8154199.jpg" alt="Training Plans" loading="lazy">
-                <h3>Training Plans</h3>
-            </div>
-            <div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
-                <img src="photos/pexels-plann-2999237-4549408.jpg" alt="Verified Coach Reviews" loading="lazy">
-                <h3>Verified Coach Reviews</h3>
-            </div>
-            <div class="feature-item" data-aos="zoom-in" data-aos-delay="500">
-                <img src="photos/pexels-leeloothefirst-7887844.jpg" alt="Goal Tracking & Progress" loading="lazy">
-                <h3>Goal Tracking & Progress</h3>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Preview -->
-    <section id="preview" data-aos="fade-left">
-        <h2>Visual Preview</h2>
-        <img src="photos/mockup.png" alt="App Preview" class="preview-image" loading="lazy">
-        <p class="center-text bold">Launching Soon on iOS</p>
-    </section>
-
-    <!-- Coaches -->
-    <section id="coaches" class="coach-invite" data-aos="fade-up">
-        <h2>Coaches, Let's Grow Together</h2>
-        <p>Are you a personal trainer or sports coach looking to expand your business? Join our platform and get
-            discovered by athletes who need your expertise — online or in person.</p>
-        <ul style="margin-top: 1rem; list-style: none; padding-left: 0;">
-            <li>📅 Flexible listing — update your schedule anytime</li>
-            <li>🔍 Athletes search and book you directly</li>
-            <li>📣 More visibility to a motivated audience</li>
-            <li>💬 Secure messaging & easy follow-ups</li>
-            <li>📈 Insights to help you grow your client base</li>
-        </ul>
-        <a href="#waitlist" class="btn" style="margin-top: 1.5rem;">Become a Listed Coach</a>
-    </section>
-
-
-    <!-- Founder -->
-    <section id="founder" data-aos="fade-up">
-        <h2>Founder & Mission</h2>
-        <div class="founder-section">
-            <img src="photos/founderphoto.jpg" alt="Founder Photo" class="founder-photo" loading="lazy">
-            <div class="founder-text">
-                <p>Meet Mikolaj Gross, the visionary behind Find My Coach. As a former collegiate athlete, Miko
-                    recognized the challenges athletes face in finding the right coaching support. His mission is to
-                    democratize access to quality coaching, ensuring every athlete, regardless of location or
-                    background, can connect with trusted professionals to elevate their performance.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Why Sign Up -->
-    <div style="text-align: center; margin-bottom: 2rem;">
-        <h3 style="font-size: 1.75rem; color: #0000fe; font-family: 'Poppins', sans-serif;">Why Should I Sign Up?</h3>
-        <ul style="margin-top: 1.5rem; list-style: none; padding: 0; max-width: 700px; margin-left: auto; margin-right: auto;">
-            <li style="margin-bottom: 1rem;">✅ Be the first to access the app before public launch</li>
-            <li style="margin-bottom: 1rem;">✅ Exclusive beta invites & early bird benefits</li>
-            <li style="margin-bottom: 1rem;">✅ Personalized coach matching based on your sport & goals</li>
-            <li style="margin-bottom: 1rem;">✅ Priority onboarding & premium feature previews</li>
-        </ul>
+ <!-- 🧭 Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="photos/findmycoachlogo.jpg" alt="Find My Coach Logo" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="athletes.html">For Athletes</a></li>
+        <li><a href="coaches.html">For Coaches</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+<li><a href="https://forms.gle/LpsP9z9HoeGp42xw7" class="btn filled" target="_blank">Join Waitlist</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Waitlist -->
-    <!-- Google Form -->
-<section class="form-section" id="waitlist" data-aos="fade-up">
-        <h2>Join the Waitlist</h2>
 
-    <div style="display: flex; justify-content: center;">
-        <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLScsacqoQMduWuLd3_ESdPxxeDIxZ3ua82yrTwjTM-sjaMEHjQ/viewform?embedded=true"
-            width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Waitlist Sign-Up"
-            aria-label="Waitlist Sign-Up Form" loading="lazy">
-            Loading…
-        </iframe>
+  <!-- 🌟 Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Find Your Perfect Sports Coach</h1>
+      <p>Connect with top-rated coaches near you. Train smarter, level up faster.</p>
+      <div class="hero-buttons">
+<a href="https://forms.gle/LpsP9z9HoeGp42xw7" class="btn filled" target="_blank">Join Waitlist</a>
+        <a href="https://forms.gle/LpsP9z9HoeGp42xw7" class="btn secondary">Become a Coach</a>
+      </div>
     </div>
+  </header>
+
+    <!-- 🌟 Quick Overview -->
+<section class="overview">
+  <div class="overview-container">
+    <h2>Why Choose Find My Coach?</h2>
+    <div class="overview-items">
+      <div class="overview-item">
+        <img src="https://img.icons8.com/ios-filled/50/000000/sports-mode.png" alt="Variety of Sports">
+        <h3>Wide Variety of Sports</h3>
+        <p>From football to tennis to boxing — find expert coaches in over 10 different sports.</p>
+      </div>
+      <div class="overview-item">
+<img src="https://img.icons8.com/ios-filled/50/000000/marker.png" alt="Nearby Coaches">
+        <h3>Coaches Near You</h3>
+        <p>We match you with top-rated coaches based on your location and preferences.</p>
+      </div>
+      <div class="overview-item">
+        <img src="https://img.icons8.com/ios-filled/50/000000/money--v1.png" alt="Affordable Pricing">
+        <h3>Affordable Pricing</h3>
+        <p>Coaching options starting from just RM80/hour. Great training doesn’t have to be expensive.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- 📷 App Preview Section -->
+<section class="app-preview">
+  <div class="app-preview-container">
+    <div class="preview-text">
+      <h2>See How It Works</h2>
+      <p>Take a quick look at how easy it is to find and book your next coach using our platform.</p>
+    </div>
+    <div class="preview-media">
+        <img src="photos/mockup.png" height="500"> 
+      </div>
+  </div>
+</section>
+    
 
+<!-- 🔗 Refined Call-to-Action -->
+<section class="final-cta">
+  <h2>Ready to Level Up Your Game?</h2>
+  <p>Whether you're training or coaching, Find My Coach makes it easy to connect.</p>
+  <div class="cta-inline">
+  <a href="#waitlist" class="btn filled">Join the Waitlist</a>
+  <span>or</span>
+  <a href="#coach-signup" class="btn outline">Become a Coach</a>
+</div>
+</section>
 
-
-
-    <!-- Footer -->
-    <footer class="footer" data-aos="fade-up">
-        <p>Contact: <a href="mailto:findmycoach.contact@gmail.com">findmycoach.contact@gmail.com</a></p>
-        <p>
-            <a href="https://www.instagram.com/findmycoach.app/">Instagram</a> |
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Terms of Service</a>
-        </p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Dark Mode
-        const toggle = document.getElementById("theme-toggle");
-        const body = document.body;
-
-        if (localStorage.getItem("theme") === "dark") {
-            body.classList.add("dark-mode");
-        }
-
-        toggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-            localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
-        });
-
-        // Form Submission
-        const waitlistForm = document.getElementById('waitlist-form');
-        const confirmation = document.getElementById('confirmation');
-
-        waitlistForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('email');
-
-            if (emailInput.value) {
-                confirmation.style.display = 'block';
-                emailInput.value = '';
-                setTimeout(() => {
-                    confirmation.style.display = 'none';
-                }, 5000);
-            }
-        });
-    </script>
+<!-- 🦶 Clean Footer -->
+<footer class="footer">
+  <p>© 2025 Find My Coach. All rights reserved.</p>
+  <p>
+    <a href="https://linktr.ee/findmycoach" target="_blank">Contact</a> |
+    <a href="#faq">FAQ</a> |
+    <a href="#privacy">Privacy Policy</a>
+  </p>
+</footer>
 </body>
-
 </html>
